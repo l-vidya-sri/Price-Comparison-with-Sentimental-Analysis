@@ -1,0 +1,72 @@
+{% extends 'base_u.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+.button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+}
+</style>
+<hr>
+
+					<center>{% for c in cat %}
+	
+					<b>
+					<a href="{% url 'viewcatprods'%}?cid={{c}}"  >
+
+{{c}}</a>
+					
+					
+					</b>&nbsp;&nbsp;||&nbsp;&nbsp;
+
+					{% endfor %}
+</center>
+<hr>
+<h2>View Products</h2>
+
+					
+<div class="products-container">
+
+
+		
+					{% for d in data %}
+
+		<div class="product">
+
+		<img src="{{d.img}}" >
+		
+		
+		<a href="{% url 'viewproduct'%}?pid={{d.pid}}" >
+	
+	  <b>{{d.name}}</b>
+	  
+
+
+</a>
+</div>
+
+		{% endfor %}
+				
+        </div>
+
+    
+
+				
+			
+
+{% endblock %}

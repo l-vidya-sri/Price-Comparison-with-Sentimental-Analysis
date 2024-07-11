@@ -1,0 +1,115 @@
+{{msg}}
+
+<style>
+.slidecontainer {
+  width: 40%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 40%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<head>
+<style> 
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+<style>
+#tab {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+   
+}
+
+#tab td, #tab th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tab tr:nth-child(even){background-color: #f2f2f2;}
+
+#tab tr:hover {background-color: #ddd;}
+
+#tab th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #0099ff;
+    color: white;
+}
+</style>
+
+<style> 
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+</style>
+</head>
+<br><br><br>
+
+		<table id="tab" width="80%" align="center">
+			<form action="{% url 'postreview' %}" method="GET">
+			{% csrf_token %}
+					<input type="hidden" name="pid" value="{{pid}}">
+					<tr><td>	 <h4>Provide your feedback</h5></b>
+					<textarea name="review" rows="" placeholder="Enter Review" cols=""></textarea>
+					<tr><td><b>Rating:	<span id="demo"></span></p>
+					<input type="range" name="rating" id="myRange" class="slider"  min="1" max="5" required>
+					<tr><td>
+					<input type="submit" value="Feedback" class="form-control">												
+					</form>
+		</table>
+
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>

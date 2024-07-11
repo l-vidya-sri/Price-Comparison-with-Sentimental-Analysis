@@ -1,0 +1,32 @@
+{% extends 'base_u.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+<h3>View reviews</h3>
+
+<table id="tab" align="left"width="40%">
+<tr><th colspan=3>Overview of sentiment scores
+<tr><th>Positve<th>Negative<th>Neutral
+<tr><td>{{p}}<td>{{n}}<td>{{ne}}
+</table><br><br><br><br><br><br>
+
+
+
+<center>
+<br>
+<table id="tab" width="100%">
+
+
+<tr><th>Sno<th>Review<th>Rating<th>Sentiment<th>User
+				{% for d in data %}
+<tr><td width="10%">{{forloop.counter}}<td>{{d.review}}<td>{{d.rating}}<td>{{d.sentiment}}<td>{{d.name}}
+
+				{% endfor %}
+</table>
+
+
+					
+
+{% endblock %}
+

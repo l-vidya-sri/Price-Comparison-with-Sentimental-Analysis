@@ -1,0 +1,23 @@
+{% extends 'base_u.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+<h3>Notifications</h3>
+<center>
+<br>
+<table id="tab" width="100%">
+
+
+<tr><th>Sno<th>Notificaion <th>Date
+				{% for d in data %}
+<tr><td width="10%">{{forloop.counter}}<td>{{d.mesg}}<td>{{d.dat_e}}
+
+				{% endfor %}
+</table>
+
+
+					
+
+{% endblock %}
+

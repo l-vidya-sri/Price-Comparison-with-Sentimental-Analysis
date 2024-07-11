@@ -1,0 +1,55 @@
+
+{% extends 'base_a.html' %}
+
+{% load static %}
+{% block content %}
+
+
+<h3>
+	
+{{msg}}
+	
+	<h3>
+	View Dataset (Products)<br><br>
+</h2>
+</h3>
+<center>
+				<table id="tab" width="100%">
+<tr>
+	<th width="5%">PID<th><center>URL<th><center>Category<th><center>Product Name<th><center>Image<th><center>Description
+	<th><center>
+
+
+				{% for d in data %}
+<tr><td>{{d.pid}}
+<td><font size="" color="#ff0066">
+<textarea name="" rows="" cols="">{{d.URL}}</textarea></font>
+<td><font size="" color="#ff0066">{{d.Category}}</font>
+<td><font size="" color="#ff0066"><textarea name="" rows="" cols="">{{d.name}}</textarea></font>
+<td><font size="" color="#ff0066"><img src="{{d.img}}" width="100" height="100" border="0" alt=""></font>
+<td><font size="" color="#ff0066"><textarea name="" rows="" cols="">{{d.description}}</textarea></font>
+
+<td><center>
+<a href="{% url 'viewprice' op=d.pid %}">View Prices</a>
+
+{% if d.pid == id %}
+<tr><td colspan="7">
+<center>
+<table width="40%">
+
+{% for p in pdata %}
+<tr><td>{{p.company}}<td>{{p.price}}
+				{% endfor %}
+</table>
+
+{% endif %}
+
+
+				{% endfor %}
+</table>
+
+<center><br><br>
+
+       
+	
+{% endblock %}

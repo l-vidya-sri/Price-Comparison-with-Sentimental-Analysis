@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<font size="+1" color="red">{{msg}}
+<center>
+</font>
+<h2>User  Registration</h2>
+<br>
+
+
+	
+<form class="w3-container" method="post" action="/u_signup/">
+	{% csrf_token %} 
+
+	<table>
+	
+                    <tr><td><input class="form-control"  type="text" name="name" placeholder="Name" required="required"   size="50"  ></input></td></tr>
+                    <tr><td><input class="form-control"  type="e_mail" name="email" placeholder="Email, example@example.com" required="required"   size="50"  onblur="validate1()"></input></td></tr>
+                    <tr><td><input class="form-control"  type="text" name="phone" placeholder="Phone" required="required"  size="50"   onblur="validate3()"></input></td></tr>
+                    
+					<tr><td><input class="form-control"  type="Password" name="password" placeholder="Password" required="required"   size="50"   onblur="validate5()"></input></td></tr>
+    
+					<tr><td><input type="submit" class="form-control" value="Register"  size="50"  >
+                
+	</table>
+
+</form>
+
+
+{% endblock %}
